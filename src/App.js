@@ -7,31 +7,26 @@ import { Drop } from "./drop.js";
 import { Form } from "./form.js";
 import { Toggle } from "./toggle.js";
 function App() {
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
+      <Toggle>
         <NavBar />
 
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Button />
 
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         <Form />
         <Greet name="Juli" />
         <Button name="secondButton" />
         <Drop />
-        <Toggle name="change color!" />
-        <h1>ufjfk</h1>
-      </header>
+      </Toggle>
+
+      <Toggle>
+        <h1>hello</h1>
+      </Toggle>
     </div>
   );
 }

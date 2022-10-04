@@ -1,6 +1,11 @@
 import { render } from "@testing-library/react";
 import React from "react";
 import ReactDOM from "react-dom";
+import { NavBar } from "./index.js";
+import { Greet } from "./index.js";
+import { Button } from "./Nav.js";
+import { Drop } from "./drop.js";
+import { Form } from "./form.js";
 
 const green = "#39D1B4";
 const yellow = "#FFD712";
@@ -24,6 +29,10 @@ changeColor() {
       <div className="App" style={{ background: this.state.color }}>
         <h1>Change my color</h1>
         <button onClick={this.changeColor}>Change color</button>
+
+        <div>
+            {this.props.children}
+        </div>
       </div>
     );
   }
