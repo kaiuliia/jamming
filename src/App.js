@@ -6,12 +6,16 @@ import { Button } from "./Nav.js";
 import { Drop } from "./drop.js";
 import { Form } from "./form.js";
 import { Toggle } from "./toggle.js";
-function App() {
- 
+import { SearchBar } from "./SearchBar.js";
+import { Track } from "./Track.js";
+import { SearchPlaylist } from "./TrackList";
+import { MyPlaylist } from "./Playlist";
+import { Root } from "./root";
 
+function App() {
   return (
     <div className="App">
-      <Toggle>
+      {/* <Toggle>
         <NavBar />
 
         <p>
@@ -19,14 +23,16 @@ function App() {
         </p>
 
         <Form />
-        <Greet name="Juli" />
+        <Greet name="Juliroma" />
         <Button name="secondButton" />
         <Drop />
       </Toggle>
 
       <Toggle>
         <h1>hello</h1>
-      </Toggle>
+      </Toggle> */}
+
+      <Root />
     </div>
   );
 }
