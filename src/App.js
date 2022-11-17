@@ -60,10 +60,13 @@ import './App.css';
 
   render() {
     return (
-      <div className="Spotify" style={{ backgroundColor: "purple" }}>
-        <h1>Jamming</h1>
+      <div>
+        <h1>
+          Ja<span className="highlight">mmm</span>ing
+        </h1>
+         <div className="App">
         <SearchBar />
-
+<div className="App-playlist">
         <SearchResults
           searResults={this.state.searchResults}
           onAdd={this.addTrack}
@@ -73,6 +76,8 @@ import './App.css';
           onRemove={this.removeTrack}
         />
       </div>
+      </div>
+      </div>
     );
   }
 }
@@ -80,3 +85,4 @@ import './App.css';
 
 
 export default App;
+
