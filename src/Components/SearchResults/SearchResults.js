@@ -2,8 +2,8 @@
 
 
 import React from "react";
-import { Track } from "./Track.js";
-import { TrackList } from "./TrackList.js";
+import { Track } from "../Track/Track";
+import { TrackList } from "../Tracklist/TrackList";
 import "./SearchResults.css";
 
 export class SearchResults extends React.Component {

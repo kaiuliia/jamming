@@ -1,40 +1,82 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { NavBar } from "./index.js";
-import { Greet } from "./index.js";
-import { Button } from "./Nav.js";
-import { Drop } from "./drop.js";
-import { Form } from "./form.js";
-import { Toggle } from "./toggle.js";
-import { SearchBar } from "./SearchBar.js";
-import { Track } from "./Track.js";
-import { SearchPlaylist } from "./TrackList";
-import { MyPlaylist } from "./Playlist";
-import { Root } from "./root";
+import { render } from "@testing-library/react";
+import React from "react";
+import { SearchBar } from './Components/SearchBar/SearchBar'
+import { Track } from "./Components/Track/Track";
+import { TrackList } from "./Components/Tracklist/TrackList";
+import { Playlist } from './Components/Playlist/Playlist'
+import { SearchResults } from "./Components/SearchResults/SearchResults";
+import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      {/* <Toggle>
-        <NavBar />
+ class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchResults: [
+        { name: "britney", album: "toxic", song: "overprotected", id: 1 }, //<Track name='britney' album='toxic' song=''/>
+        { name: "justin", album: "freedom", song: "free", id: 2 },
+        { name: "freddy", album: "bogemian", song: "bicycle", id: 3 },
+      ],
 
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      playlistResults: [
+        { name: "alla", album: "nepogoda", song: "rozy", id: 4 },
+        { name: "filipp", album: "dozhd", song: "ty i ya", id: 5 },
+      ],
+    };
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+  }
 
-        <Form />
-        <Greet name="Juliroma" />
-        <Button name="secondButton" />
-        <Drop />
-      </Toggle>
+  addTrack(track) {
+    let playlists = this.state.playlistResults;
+    let search = this.state.searchResults;
 
-      <Toggle>
-        <h1>hello</h1>
-      </Toggle> */}
+    if (playlists.find((song) => track.id === song.id)) {
+      return;
+    } else {
+      playlists.unshift(track);
+      let i = search.indexOf(track);
+      search.splice(i, 1);
+    }
 
-      <Root />
-    </div>
-  );
+    this.setState({
+      playlistResults: playlists,
+      searchResults: search,
+    });
+  }
+
+  removeTrack(track) {
+    let playlists = this.state.playlistResults;
+    let search = this.state.searchResults;
+    let i = playlists.indexOf(track);
+    playlists.splice(i, 1);
+
+    this.setState({
+      playlistResults: playlists,
+    });
+  }
+
+
+
+
+  render() {
+    return (
+      <div className="Spotify" style={{ backgroundColor: "purple" }}>
+        <h1>Jamming</h1>
+        <SearchBar />
+
+        <SearchResults
+          searResults={this.state.searchResults}
+          onAdd={this.addTrack}
+        />
+        <Playlist
+          playlist={this.state.playlistResults}
+          onRemove={this.removeTrack}
+        />
+      </div>
+    );
+  }
 }
+
+
 
 export default App;

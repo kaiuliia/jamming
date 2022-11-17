@@ -1,5 +1,5 @@
 import React from "react";
-import { Track } from "./Track.js";
+import { Track } from "../Track/Track";
 import './trackList.css'
 
 
