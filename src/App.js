@@ -25,6 +25,7 @@ import './App.css';
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
      this.savePlaylist = this.savePlaylist.bind(this);
+     this.search = this.search.bind(this);
   }
 
   addTrack(track) {
@@ -57,10 +58,13 @@ import './App.css';
   }
 
 savePlaylist() {
+   
   const trackUris = this.state.playlistResults.map(track=>track.uri);
 }
 
-
+search(term) {
+   console.log(term);
+}
   render() {
     return (
       <div>
@@ -68,7 +72,7 @@ savePlaylist() {
           Ja<span className="highlight">mmm</span>ing
         </h1>
          <div className="App">
-        <SearchBar />
+        <SearchBar onSearch={this.search}/>
 <div className="App-playlist">
         <SearchResults
           searResults={this.state.searchResults}
