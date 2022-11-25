@@ -1,7 +1,7 @@
 import { SearchBar } from "../SearchBar/SearchBar";
 
 const cliendId = "08288271bc9e43e5ad158af384ffcacc";
-const redirectUri = "http://localhost:3000/";
+const redirectUri = "http://juliajammming.surge.sh";
 
 
 let accessToken; 

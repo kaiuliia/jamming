@@ -63,7 +63,7 @@ Spotify.savePlaylist(this.state.playlistName, trackUris).then(
      })
   }
 )
-
+alert('Your playlist was saved')
 }
 
 search(term) {
