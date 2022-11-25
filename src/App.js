@@ -24,6 +24,7 @@ import './App.css';
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
+     this.savePlaylist = this.savePlaylist.bind(this);
   }
 
   addTrack(track) {
@@ -55,7 +56,9 @@ import './App.css';
     });
   }
 
-
+savePlaylist() {
+  const trackUris = this.state.playlistResults.map(track=>track.uri);
+}
 
 
   render() {
@@ -74,6 +77,7 @@ import './App.css';
         <Playlist
           playlist={this.state.playlistResults}
           onRemove={this.removeTrack}
+          onSave={this.savePlaylist}
         />
       </div>
       </div>
