@@ -13,16 +13,9 @@ import Spotify from "./Components/util/Spotify";
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [
-        { name: "britney", album: "toxic", song: "overprotected", id: 1 }, //<Track name='britney' album='toxic' song=''/>
-        { name: "justin", album: "freedom", song: "free", id: 2 },
-        { name: "freddy", album: "bogemian", song: "bicycle", id: 3 },
-      ],
-
-      playlistResults: [
-        { name: "alla", album: "nepogoda", song: "rozy", id: 4 },
-        { name: "filipp", album: "dozhd", song: "ty i ya", id: 5 },
-      ],
+      searchResults: [],
+playlistName:'My Playlist',
+      playlistResults: [],
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -62,6 +55,15 @@ import Spotify from "./Components/util/Spotify";
 savePlaylist() {
    
   const trackUris = this.state.playlistResults.map(track=>track.uri);
+Spotify.savePlaylist(this.state.playlistName, trackUris).then(
+  () => {
+     this.setState({
+      playlistName: 'New Playlist',
+      playlistTracks:[]
+     })
+  }
+)
+
 }
 
 search(term) {
