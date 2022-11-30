@@ -19,7 +19,7 @@ h1 {
 }
 
 h1 .highlight {
-  color: #6c41ec;
+  color: #0d8b97;
 }
 
 h2 {
@@ -30,7 +30,7 @@ h2 {
 .App {
   height: 100%;
   padding: 0 17% 10% 17%;
-  background-image: url('https://content.codecademy.com/programs/react/jammming/background_photo_desktop.jpg?_gl=1*14hoz1b*_ga*MTUzOTEwMzkyNS4xNjQxMzcxOTQ0*_ga_3LRZM6TM9L*MTY2NTQxMTk3NS4zNTQuMS4xNjY1NDEyMjE4LjI3LjAuMA..');
+  background-image: url(../src/resources/bg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
