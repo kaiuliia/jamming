@@ -6,7 +6,7 @@
   width: 37%;
   max-height: 950px;
   padding: 2.27rem 1.16rem;
-  background-color: rgba(1, 12, 63, 0.7);
+  background-color: rgba(1, 47, 63, 0.7);
   box-shadow: 0 4px 2px 2px #000000;
 }
 
@@ -29,7 +29,7 @@
   border-radius: 54px;
   border-width: 0px;
   margin-top: 1.27rem;
-  background-color: #010c3f;
+  background-color: #012c3f;
   text-align: center;
   font-size: .83rem;
   transition: background-color .25s;

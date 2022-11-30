@@ -76,21 +76,23 @@ search(term) {
       <div>
         <h1>
           Ja<span className="highlight">mmm</span>ing
+          <p id='jam'>Create a custom playlist and save it to your Spotify account!</p>
         </h1>
-         <div className="App">
-        <SearchBar onSearch={this.search}/>
-<div className="App-playlist">
-        <SearchResults
-          searResults={this.state.searchResults}
-          onAdd={this.addTrack}
-        />
-        <Playlist
-          playlist={this.state.playlistResults}
-          onRemove={this.removeTrack}
-          onSave={this.savePlaylist}
-        />
-      </div>
-      </div>
+
+        <div className="App">
+          <SearchBar onSearch={this.search} />
+          <div className="App-playlist">
+            <SearchResults
+              searResults={this.state.searchResults}
+              onAdd={this.addTrack}
+            />
+            <Playlist
+              playlist={this.state.playlistResults}
+              onRemove={this.removeTrack}
+              onSave={this.savePlaylist}
+            />
+          </div>
+        </div>
       </div>
     );
   }

@@ -11,15 +11,18 @@ html {
 
 h1 {
   padding: .77rem 0;
-  background-color: #010c3f;
+  background-color: #012c3f;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 1.88rem;
   color: #fff;
   margin-top: 0;
   margin-bottom: 0;
+  
 }
-
+#jam{
+  font-size:medium;
+}
 h1 .highlight {
   color: #0d8b97;
 }
