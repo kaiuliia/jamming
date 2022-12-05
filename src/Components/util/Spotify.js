@@ -25,6 +25,10 @@ const Spotify = {
     }
   },
 
+  resetAccessToken() {
+    accessToken = undefined;
+  },
+
   async search(term) {
     try {
       const accessToken = Spotify.getAccessToken();
@@ -39,7 +43,7 @@ const Spotify = {
 
       if (!response.ok) {
         if (response.status === 403) {
-          accessToken = undefined;
+          this.resetAccessToken();
           this.getAccessToken();
         }
 
