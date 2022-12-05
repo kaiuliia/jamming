@@ -1,4 +1,4 @@
-const cliendId = "3003eac0875e4a0ea2ecbb45112d1b77";
+const cliendId = "08288271bc9e43e5ad158af384ffcacc";
 const redirectUri = "https://jamming.rusanova.eu";
 
 let accessToken;
