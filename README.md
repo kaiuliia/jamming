@@ -2,7 +2,7 @@ Jamming App.
 
 This is the website that allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account.
 You can see the website here:
-http://juliajammming.surge.sh
+https://jamming.rusanova.eu
 
 ## Available Scripts
 
