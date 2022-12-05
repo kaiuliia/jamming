@@ -1,7 +1,7 @@
 import { SearchBar } from "../SearchBar/SearchBar";
 
-const cliendId = "08288271bc9e43e5ad158af384ffcacc";
-const redirectUri = "http://juliajammming.surge.sh";
+const cliendId = "3003eac0875e4a0ea2ecbb45112d1b77";
+const redirectUri = "https://jamming.rusanova.eu";
 
 let accessToken;
 
@@ -27,29 +27,60 @@ const Spotify = {
     }
   },
 
-  search(term) {
-    const accessToken = Spotify.getAccessToken();
-    return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonResponse) => {
-        if (!jsonResponse.tracks) {
-          return [];
+  async search(term) {
+   
+    try {
+       const accessToken = Spotify.getAccessToken();
+      const request = await fetch(
+    
+        `https://api.spotify.com/v1/search?type=track&q=${term}`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
         }
-        return jsonResponse.tracks.items.map((track) => ({
-          id: track.id,
-          name: track.name,
-          artist: track.artists[0].name,
-          album: track.album.name,
-          uri: track.uri,
-        }));
-      });
+      );
+
+      const response = await response.json();
+      const jsonResponse = await jsonResponse.tracks;
+      if (!jsonResponse.tracks) {
+        return [];
+      }
+      return jsonResponse.tracks.items.map((track) => ({
+        id: track.id,
+        name: track.name,
+        artist: track.artists[0].name,
+        album: track.album.name,
+        uri: track.uri,
+      }));
+    } catch (error) {
+      alert("error!");
+    }
   },
+
+  // search(term) {
+  //   const accessToken = Spotify.getAccessToken();
+  //   return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+  //     headers: {
+  //       Authorization: `Bearer ${accessToken}`,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((jsonResponse) => {
+  //       if (!jsonResponse.tracks) {
+  //         return [];
+  //       }
+  //       return jsonResponse.tracks.items.map((track) => ({
+  //         id: track.id,
+  //         name: track.name,
+  //         artist: track.artists[0].name,
+  //         album: track.album.name,
+  //         uri: track.uri,
+  //       }));
+  //     });
+  // },
 
   savePlaylist(name, trackUris) {
     if (!name || !trackUris.length) {
