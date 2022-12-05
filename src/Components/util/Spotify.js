@@ -1,5 +1,3 @@
-import { SearchBar } from "../SearchBar/SearchBar";
-
 const cliendId = "3003eac0875e4a0ea2ecbb45112d1b77";
 const redirectUri = "https://jamming.rusanova.eu";
 
@@ -42,7 +40,7 @@ const Spotify = {
       if (!response.ok) {
         if (response.status === 403) {
           accessToken = undefined;
-          getAccessToken();
+          this.getAccessToken();
         }
 
         return [];
