@@ -1,26 +1,26 @@
-
 import "./searchBar.css";
 import React, { useState } from "react";
 
+export function SearchBar(props) {
+  const [term, setTerm] = useState("");
 
-export  function SearchBar  () {
+  const search = () => {
+    props.onSearch(term);
+  };
 
-const [term, setTerm] = useState('');
+  const handleTermChange = ({ event }) => {
+    setTerm(event.target.value);
+  };
 
-const search = () => {
-  this.props.onSearch(term);
+  return (
+    <div className="SearchBar">
+      <input
+        onChange={handleTermChange}
+        placeholder="Enter A Song, Album, or Artist"
+      />
+      <button onClick={search} className="SearchButton">
+        SEARCH
+      </button>
+    </div>
+  );
 }
-
-const handleTermChange = ({event}) => {
-setTerm(event.target.value)
-}
-
- 
-    return (
-      <div className="SearchBar">
-        <input onChange = {handleTermChange} placeholder="Enter A Song, Album, or Artist" />
-        <button onClick ={search} className="SearchButton">SEARCH</button>
-      </div>
-    );
-  }
-
