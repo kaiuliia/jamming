@@ -34,15 +34,13 @@ const [playlistResults, setPlaylistResults] = useState([]);
    
   
 
-  removeTrack(track) {
-    let playlists = this.state.playlistResults;
-    let search = this.state.searchResults;
+  const removeTrack=(track)=> {
+    let playlists = playlistResults;
+    let search = searchResults;
     let i = playlists.indexOf(track);
     playlists.splice(i, 1);
-
-    this.setState({
-      playlistResults: playlists,
-    });
+      setPlaylistResults(playlists)
+  
   }
 
 savePlaylist() {
