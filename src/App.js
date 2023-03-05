@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import React from "react";
+import React, {useState} from "react";
 import { SearchBar } from './Components/SearchBar/SearchBar'
 import { Track } from "./Components/Track/Track";
 import { TrackList } from "./Components/Tracklist/TrackList";
@@ -9,23 +9,16 @@ import './App.css';
 
 import Spotify from "./Components/util/Spotify";
 
- class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchResults: [],
-playlistName:'My Playlist',
-      playlistResults: [],
-    };
-    this.addTrack = this.addTrack.bind(this);
-    this.removeTrack = this.removeTrack.bind(this);
-     this.savePlaylist = this.savePlaylist.bind(this);
-     this.search = this.search.bind(this);
-  }
+function App (props) {
+const [searchResults, setSearchResults] = useState([]);
+const [playlistName, setPlaylistName] = useState("My Playlist");
+const [playlistResults, setPlaylistResults] = useState([]);
 
-  addTrack(track) {
-    let playlists = this.state.playlistResults;
-    let search = this.state.searchResults;
+
+
+  const addTrack = (track) => {
+    let playlists = playlistResults;
+    let search = searchResults;
 
     if (playlists.find((song) => track.id === song.id)) {
       return;
@@ -35,11 +28,11 @@ playlistName:'My Playlist',
       search.splice(i, 1);
     }
 
-    this.setState({
-      playlistResults: playlists,
-      searchResults: search,
-    });
+      setPlaylistResults(playlists),
+      setSearchResults(search)
   }
+   
+  
 
   removeTrack(track) {
     let playlists = this.state.playlistResults;
