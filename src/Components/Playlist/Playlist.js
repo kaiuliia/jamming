@@ -1,18 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import { Track } from '../Track/Track';
 import { TrackList } from "../Tracklist/TrackList";
 import './playlist.css'
 
-export class Playlist extends React.Component {
-  constructor(props) {
-    super(props);
+export function Playlist(props) {
+const [playListName, setPlayListName] = useState("My Playlist");
 
-    this.state = {
-      playListName: "My Playlist",
-    };
+const search = () => {
+  props.onSearch(term);
+};
+}
 
-    this.changePlaylistName = this.changePlaylistName.bind(this);
-  }
+
 
   changePlaylistName() {
     let currentName = this.state.playListName;
