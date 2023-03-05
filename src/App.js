@@ -43,23 +43,23 @@ const [playlistResults, setPlaylistResults] = useState([]);
   
   }
 
-savePlaylist() {
+const savePlaylist=()=> {
    
-  const trackUris = this.state.playlistResults.map(track=>track.uri);
-Spotify.savePlaylist(this.state.playlistName, trackUris).then(
+  const trackUris = playlistResults.map(track=>track.uri);
+Spotify.savePlaylist(playlistName, trackUris).then(
   () => {
-     this.setState({
-      playlistName: 'New Playlist',
-      playlistTracks:[]
-     })
+  
+      setPlaylistName('New Playlist'),
+      setPlaylistTracks([])
+     
   }
 )
 alert('Your playlist was saved')
 }
 
-search(term) {
+const search=(term) => {
    Spotify.search(term).then(searchResults => {
-    this.setState({searchResults: searchResults})
+  setSearchResults(searchResults)
    })
 }
   render() {
