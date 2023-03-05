@@ -1,38 +1,28 @@
 import React from "react";
 import { Track } from "../Track/Track";
-import './trackList.css'
+import "./trackList.css";
 
-
-export class TrackList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  
- 
-
-  render() {
-    return (
-      <div className="TrackList">
-        {
-          /* {
+export function TrackList(props) {
+  return (
+    <div className="TrackList">
+      {
+        /* {
       <Track name='' album='' song=''/> */
-          this.props.tracks.map(track => {
-            return (
-              <Track
-                track={track}
-                name={track.name}
-                album={track.album}
-                song={track.song}
-                key={track.id}
-                onAdd={this.props.addTrack}
-                onRemove={this.props.onRemove}
-                isRemoval={this.props.isRemoval}
-              />
-            );
-          })
-        }
-      </div>
-    );
-  }
+        props.tracks.map((track) => {
+          return (
+            <Track
+              track={track}
+              name={track.name}
+              album={track.album}
+              song={track.song}
+              key={track.id}
+              onAdd={props.addTrack}
+              onRemove={props.onRemove}
+              isRemoval={props.isRemoval}
+            />
+          );
+        })
+      }
+    </div>
+  );
 }
