@@ -6,21 +6,16 @@ import './playlist.css'
 export function Playlist(props) {
 const [playListName, setPlayListName] = useState("My Playlist");
 
-const search = () => {
-  props.onSearch(term);
+const changePlaylistName = () => {
+let currentName = playListName;
+currentName = document.getElementById("userInput").value;
+setPlayListName(currentName)
 };
 }
 
 
 
-  changePlaylistName() {
-    let currentName = this.state.playListName;
-    currentName = document.getElementById("userInput").value;
 
-    this.setState({
-      playListName: currentName,
-    });
-  }
 
   render() {
     return (
