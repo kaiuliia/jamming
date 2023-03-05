@@ -1,41 +1,32 @@
-import React, {useState} from "react";
-import { Track } from '../Track/Track';
+import React, { useState } from "react";
 import { TrackList } from "../Tracklist/TrackList";
-import './playlist.css'
+import "./playlist.css";
 
 export function Playlist(props) {
-const [playListName, setPlayListName] = useState("My Playlist");
+  const [playListName, setPlayListName] = useState("My Playlist");
 
-const changePlaylistName = () => {
-let currentName = playListName;
-currentName = document.getElementById("userInput").value;
-setPlayListName(currentName)
-};
+  const changePlaylistName = () => {
+    let currentName = playListName;
+    currentName = document.getElementById("userInput").value;
+    setPlayListName(currentName);
+  };
 }
 
+return (
+  <div className="Playlist">
+    <input
+      id="userInput"
+      defaultValue="New Playlist"
+      onChange={changePlaylistName}
+    />
 
-
-
-
-  render() {
-    return (
-      <div className="Playlist">
-       <input
-          id="userInput"
-          defaultValue='New Playlist'
-          onChange={this.changePlaylistName}
-        />
-       
-        <TrackList
-          tracks={this.props.playlist}
-          onRemove={this.props.onRemove}
-          isRemoval={false}
-        />
-        <button className="Playlist-save"  onClick={this.props.onSave}>SAVE TO SPOTIFY</button>
-      </div>
-    );
-  }
-}
-
-
-
+    <TrackList
+      tracks={props.playlist}
+      onRemove={props.onRemove}
+      isRemoval={false}
+    />
+    <button className="Playlist-save" onClick={props.onSave}>
+      SAVE TO SPOTIFY
+    </button>
+  </div>
+);
